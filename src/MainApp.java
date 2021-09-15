@@ -5,7 +5,7 @@ public class MainApp {
         //1. Utwórz 4 zmienne typu int i przypisz im dowolne wartości.
         //2. Sprawdź, czy suma dwóch pierwszych liczb jest parzysta.
         //3. Sprawdź, czy suma dwóch pozostałych liczb jest parzysta.
-        //34. Jeżeli dwie sumy są parzyste, to wyświetl informację, że wszystkie sumy są parzyste.
+        //4. Jeżeli dwie sumy są parzyste, to wyświetl informację, że wszystkie sumy są parzyste.
 
         int number1 = 11;
         int number2 = 55;
