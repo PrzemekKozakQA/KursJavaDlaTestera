@@ -3,13 +3,13 @@ public class Bug {
     String bugDescription;
     String bugAuthorEmail;
     int bugPriority;
-    boolean bugStatus;
+    boolean bugStatusIsOpen;
 
     Bug(String bugDescription, String bugAuthorEmail, int bugPriority) {
         this.bugDescription = bugDescription;
         this.bugAuthorEmail = bugAuthorEmail;
         this.bugPriority = bugPriority;
-        this.bugStatus = false;
+        this.bugStatusIsOpen = true;
     }
 
     void showAllBugInfo() {
@@ -22,7 +22,7 @@ public class Bug {
     }
 
     String getBugStatusInString() {
-        if (!bugStatus) {
+        if (bugStatusIsOpen) {
             return "Otwarty";
         } else {
             return "Zamknięty";

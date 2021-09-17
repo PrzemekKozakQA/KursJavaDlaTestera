@@ -1,7 +1,7 @@
 public class MainApp {
 
     public static void main(String[] args) {
-        Bug firstBug = new Bug("Błąd testowy", "autor@bug.com", 2);
+        Bug firstBug = new Bug("Błąd testowy", "autor@bug.com", 1);
 
         firstBug.showAllBugInfo();
 
@@ -9,8 +9,8 @@ public class MainApp {
 
         firstBug.showBugStatus();
 
-        firstBug.bugPriority = firstBug.getBugPriority() + 1;
-        firstBug.bugStatus = true;
+        firstBug.bugPriority = firstBug.getBugPriority() + 4;
+        firstBug.bugStatusIsOpen = !firstBug.bugStatusIsOpen;
 
         firstBug.showAllBugInfo();
     }
