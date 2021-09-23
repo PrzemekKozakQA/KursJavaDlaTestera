@@ -1,8 +1,8 @@
 package model;
 
 public class User {
-    //1. Pola obiektu
-    // Opisują, z czego będzie składał się dany obiekt.
+    private static int userCounter = 0;
+
     private String firstName;
     private String lastName;
     private String email;
@@ -22,6 +22,7 @@ public class User {
         this.email = email;
         this.age = age;
         this.isAdult = isUserAdult();
+        userCounter++;
     }
 
     public String getFirstName() {
@@ -89,5 +90,9 @@ public class User {
         } else {
             return false;
         }
+    }
+
+    public static int getUserCounter() {
+        return userCounter;
     }
 }
