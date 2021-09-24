@@ -1,12 +1,13 @@
 package model.computer;
 
-public class Computer {
+public abstract class Computer {
 
     protected String name;
     protected String type;
     protected int hdd;
     protected int ram;
     protected boolean state;
+    protected int volumeLevel;
 
     public Computer(String name, String type, int hdd, int ram) {
         this.name = name;
@@ -14,6 +15,7 @@ public class Computer {
         this.hdd = hdd;
         this.ram = ram;
         this.state = false;
+        volumeLevel = 0;
     }
 
     public String getName() {
@@ -54,10 +56,20 @@ public class Computer {
     }
 
     public void switchOff() {
+        System.out.println("Wyłączam kopmuter: " + name);
         state = false;
     }
 
     public boolean getState() {
         return state;
     }
+
+    public abstract int volumeUp();
+
+    public abstract int volumeDown();
+
+    public abstract int volumeUp(int volumeChange);
+
+    public abstract int volumeDown(int volumeChange);
+
 }
