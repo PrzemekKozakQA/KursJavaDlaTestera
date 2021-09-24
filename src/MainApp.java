@@ -14,6 +14,15 @@ public class MainApp {
         System.out.println(officeComputer.volumeDown(50));
         System.out.println(officeComputer.volumeDown());
         System.out.println(officeComputer.volumeDown(50));
+
+        Computer gamingLaptop = new Laptop("Gaming laptop 1", "HP", 500, 128, 50);
+
+        System.out.println(gamingLaptop.volumeUp());
+        System.out.println(gamingLaptop.volumeUp(100));
+
+        System.out.println(gamingLaptop.volumeDown(50));
+        System.out.println(gamingLaptop.volumeDown());
+        System.out.println(gamingLaptop.volumeDown(50));
     }
 
 }
