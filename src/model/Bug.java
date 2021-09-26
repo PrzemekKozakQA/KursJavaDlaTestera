@@ -1,15 +1,17 @@
 package model;
 
-public class Bug {
+import java.util.Objects;
+
+public class Bug implements ConsoleNotification {
 
     private String bugDescription;
-    private String bugAuthorEmail;
+    private BugReporter bugReporter;
     private int bugPriority;
     private boolean bugStatusIsOpen;
 
-    public Bug(String bugDescription, String bugAuthorEmail, int bugPriority) {
+    public Bug(String bugDescription, BugReporter bugReporter, int bugPriority) {
         this.bugDescription = bugDescription;
-        this.bugAuthorEmail = bugAuthorEmail;
+        this.bugReporter = bugReporter;
         this.bugPriority = bugPriority;
         this.bugStatusIsOpen = true;
     }
@@ -26,16 +28,12 @@ public class Bug {
         }
     }
 
-    public String getBugAuthorEmail() {
-        return bugAuthorEmail;
+    public BugReporter getBugReporter() {
+        return bugReporter;
     }
 
-    public void setBugAuthorEmail(String bugAuthorEmail) {
-        if (bugAuthorEmail.contains("@") && bugAuthorEmail.contains(".")) {
-            this.bugAuthorEmail = bugAuthorEmail;
-        } else {
-            System.out.println("Invalid e-mail address - does not include \"@\" or \".\"");
-        }
+    public void setBugReporter(BugReporter bugReporter) {
+        this.bugReporter = bugReporter;
     }
 
     public int getBugPriority() {
@@ -56,15 +54,17 @@ public class Bug {
 
     public void setBugStatusIsOpen(Boolean bugStatusIsOpen) {
         this.bugStatusIsOpen = bugStatusIsOpen;
+        notifyStatusChange();
     }
 
     public void showAllBugInfo() {
-        System.out.println("Opis błędu: " + bugDescription + " Email osoby zgłaszającej: " + bugAuthorEmail +
-                " Priorytet błędu : " + bugPriority + " Status błędu: " + getBugStatusInString());
+        System.out.println("Opis błędu: " + bugDescription + "\nImię i nazwisko osoby zgłaszającej: "
+                + bugReporter.getFirstName() + " " + bugReporter.getLastName() + "\nEmail osoby zgłaszającej: "
+                + bugReporter.getEmail() + "\nPriorytet błędu : " + bugPriority + " Status błędu: " + getBugStatusInString());
     }
 
-    public void showBugReportAuthorEmail() {
-        System.out.println("Email osoby zgłaszającej: " + bugAuthorEmail);
+    public void showBugReporterEmail() {
+        System.out.println("Email osoby zgłaszającej: " + bugReporter.getEmail());
     }
 
     public String getBugStatusInString() {
@@ -79,4 +79,19 @@ public class Bug {
         System.out.println("Status błędu: " + getBugStatusInString());
     }
 
+
+    @Override
+    public void notifyStatusChange() {
+        System.out.println("Status błędu zmienił się na: " + getBugStatusInString());
+    }
+
+    @Override
+    public String toString() {
+        return "Bug{" +
+                "bugDescription='" + bugDescription + '\'' +
+                ", bugReporter=" + bugReporter +
+                ", bugPriority=" + bugPriority +
+                ", bugStatusIsOpen=" + bugStatusIsOpen +
+                '}';
+    }
 }

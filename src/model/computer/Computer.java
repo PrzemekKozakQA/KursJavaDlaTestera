@@ -1,15 +1,15 @@
 package model.computer;
 
-public abstract class Computer {
+abstract public class Computer {
 
     protected String name;
     protected String type;
-    protected int hdd;
-    protected int ram;
+    protected Hdd hdd;
+    protected Ram ram;
     protected boolean state;
     protected int volumeLevel;
 
-    public Computer(String name, String type, int hdd, int ram) {
+    public Computer(String name, String type, Hdd hdd, Ram ram) {
         this.name = name;
         this.type = type;
         this.hdd = hdd;
@@ -34,19 +34,19 @@ public abstract class Computer {
         this.type = type;
     }
 
-    public int getHdd() {
+    public Hdd getHdd() {
         return hdd;
     }
 
-    public void setHdd(int hdd) {
+    public void setHdd(Hdd hdd) {
         this.hdd = hdd;
     }
 
-    public int getRam() {
+    public Ram getRam() {
         return ram;
     }
 
-    public void setRam(int ram) {
+    public void setRam(Ram ram) {
         this.ram = ram;
     }
 

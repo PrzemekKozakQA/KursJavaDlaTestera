@@ -1,19 +1,29 @@
-import model.computer.Computer;
-import model.computer.Laptop;
-import model.computer.PC;
+import model.Bug;
+import model.BugReporter;
+import model.User;
+import model.computer.*;
 
 public class MainApp {
 
     public static void main(String[] args) {
 
-        Computer officeComputer = new PC("Office computer 1", "HP", 500, 128);
+        Bug bug = new Bug("Testowe zgłoszenie", new BugReporter("Jan", "Nowak",
+                "j@test.pl"), 1);
 
-        System.out.println(officeComputer.volumeUp());
-        System.out.println(officeComputer.volumeUp(100));
+        System.out.println(bug.toString());
 
-        System.out.println(officeComputer.volumeDown(50));
-        System.out.println(officeComputer.volumeDown());
-        System.out.println(officeComputer.volumeDown(50));
+        bug.getBugReporter().setEmail("j-test-pl");
+
+        bug.getBugReporter().setEmail("jn@test.pl");
+
+        bug.showBugStatus();
+
+        bug.setBugStatusIsOpen(true);
+
+        bug.setBugStatusIsOpen(false);
+
+        bug.showAllBugInfo();
+
     }
 
 }
