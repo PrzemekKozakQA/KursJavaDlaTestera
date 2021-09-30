@@ -16,6 +16,8 @@ public interface Music {
 
     void stopMusic();
 
+
+
     //od JAVA 8
 
     //4. Metody domyslne - zwykłe metody
