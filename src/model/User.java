@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class User implements Comparable<User>{
+public class User implements Comparable<User> {
     private static int userCounter = 0;
 
     private String firstName;
@@ -125,7 +125,7 @@ public class User implements Comparable<User>{
     @Override
     public int compareTo(User user) {
         int compareResult = this.getFirstName().compareTo(user.getFirstName());
-        if(compareResult==0){
+        if (compareResult == 0) {
             compareResult = this.getLastName().compareTo(user.getLastName());
         }
         return compareResult;

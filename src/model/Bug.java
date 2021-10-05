@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class Bug implements ConsoleNotification {
+public class Bug implements ConsoleNotification, Comparable<Bug> {
 
     private String bugDescription;
     private BugReporter bugReporter;
@@ -85,6 +85,13 @@ public class Bug implements ConsoleNotification {
         System.out.println("Status błędu zmienił się na: " + getBugStatusInString());
     }
 
+
+    @Override
+    public int compareTo(Bug bug) {
+        int compareResult = this.bugDescription.compareTo(bug.bugDescription);
+        return compareResult;
+    }
+
     @Override
     public String toString() {
         return "Bug{" +
@@ -93,5 +100,18 @@ public class Bug implements ConsoleNotification {
                 ", bugPriority=" + bugPriority +
                 ", bugStatusIsOpen=" + bugStatusIsOpen +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bug bug = (Bug) o;
+        return bugPriority == bug.bugPriority && bugStatusIsOpen == bug.bugStatusIsOpen && Objects.equals(bugDescription, bug.bugDescription) && Objects.equals(bugReporter, bug.bugReporter);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bugDescription, bugReporter, bugPriority, bugStatusIsOpen);
     }
 }
