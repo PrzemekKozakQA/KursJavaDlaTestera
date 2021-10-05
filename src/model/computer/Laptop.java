@@ -101,4 +101,5 @@ public class Laptop extends Computer implements Video, Music {
     public void sayHallo() {
         Music.super.sayHallo();
     }
+
 }
