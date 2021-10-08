@@ -42,7 +42,7 @@ public class Bug implements ConsoleNotification, Comparable<Bug> {
         return bugPriority;
     }
 
-    public void setBugPriority(int bugPriority) {
+    public void setBugPriority(int bugPriority) throws IllegalBugPriorityException {
         switch (bugPriority) {
             case 1:
             case 2:

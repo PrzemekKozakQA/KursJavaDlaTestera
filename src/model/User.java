@@ -129,7 +129,7 @@ public class User implements Comparable<User> {
                 ", email='" + email + '\'' +
                 ", age=" + age +
                 ", isAdult=" + isAdult +
-                ", gender=" + gender +
+                ", gender=" + gender.getName() +
                 '}';
     }
 
